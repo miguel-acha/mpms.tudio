@@ -1303,8 +1303,8 @@ ul {
   .campanas-right .car-slide,
   .campanas-left .car-slide {
     height: 260px;
-    width: calc(100vw - 4rem);
-    flex: 0 0 calc(100vw - 4rem);
+    width: 100%;
+    flex: 0 0 100%;
   }
 
   /* mood boards side by side on tablet */
@@ -1346,16 +1346,16 @@ ul {
   }
 
   #track-merch .car-slide {
-    width: calc(100vw - 3rem);
-    flex: 0 0 calc(100vw - 3rem);
+    width: 100%;
+    flex: 0 0 100%;
     height: 260px;
   }
   
   .campanas-right .car-slide,
   .campanas-left .car-slide {
     height: 220px;
-    width: calc(100vw - 3rem);
-    flex: 0 0 calc(100vw - 3rem);
+    width: 100%;
+    flex: 0 0 100%;
   }
 
   .img-modal-nav {
