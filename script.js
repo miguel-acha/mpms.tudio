@@ -110,7 +110,7 @@ gsap.utils.toArray('.campanas-right').forEach(el => {
 });
 
 /* Ad columns — stagger in */
-gsap.utils.toArray('.ad-col').forEach((col, i) => {
+gsap.utils.toArray('.comp-col').forEach((col, i) => {
   gsap.fromTo(col,
     { opacity: 0, y: 40, scale: 0.95 },
     {
@@ -121,19 +121,19 @@ gsap.utils.toArray('.ad-col').forEach((col, i) => {
 });
 
 /* Ad labels — slide from side */
-gsap.utils.toArray('.ad-label-before').forEach(el => {
+gsap.utils.toArray('.comp-label-before').forEach(el => {
   gsap.fromTo(el, { opacity: 0, x: -20 },
     { opacity: 1, x: 0, duration: 0.6, delay: 0.3, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' } });
 });
-gsap.utils.toArray('.ad-label-after').forEach(el => {
+gsap.utils.toArray('.comp-label-after').forEach(el => {
   gsap.fromTo(el, { opacity: 0, x: 20 },
     { opacity: 1, x: 0, duration: 0.6, delay: 0.3, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' } });
 });
 
 /* Ad controls — fade up */
-gsap.utils.toArray('.ad-controls').forEach(el => {
+gsap.utils.toArray('.comp-controls').forEach(el => {
   gsap.fromTo(el, { opacity: 0, y: 20 },
     { opacity: 1, y: 0, duration: 0.7, delay: 0.4, ease: 'power3.out',
       scrollTrigger: { trigger: el, start: 'top 95%', toggleActions: 'play none none none' } });
@@ -398,13 +398,13 @@ initCarousel('track-merch', 4);
    ANTES / DESPUÉS — Sincronizado con autoplay
 =========================== */
 (function () {
-  const antesEl = document.getElementById('ad-antes');
-  const despuesEl = document.getElementById('ad-despues');
-  const dotsEl = document.getElementById('ad-dots');
+  const antesEl = document.getElementById('comp-antes');
+  const despuesEl = document.getElementById('comp-despues');
+  const dotsEl = document.getElementById('comp-dots');
   if (!antesEl || !despuesEl) return;
 
-  const antesImgs = antesEl.querySelectorAll('.ad-img');
-  const despuesImgs = despuesEl.querySelectorAll('.ad-img');
+  const antesImgs = antesEl.querySelectorAll('.comp-img');
+  const despuesImgs = despuesEl.querySelectorAll('.comp-img');
   const totalSteps = Math.max(antesImgs.length, despuesImgs.length);
   let current = 0;
   let autoTimer = null;
@@ -433,8 +433,8 @@ initCarousel('track-merch', 4);
   function startAuto() { autoTimer = setInterval(() => show(current + 1), 2500); }
   function restartAuto() { clearInterval(autoTimer); startAuto(); }
 
-  const prev = document.querySelector('.ad-prev');
-  const next = document.querySelector('.ad-next');
+  const prev = document.querySelector('.comp-prev');
+  const next = document.querySelector('.comp-next');
   prev && prev.addEventListener('click', () => { show(current - 1); restartAuto(); });
   next && next.addEventListener('click', () => { show(current + 1); restartAuto(); });
 

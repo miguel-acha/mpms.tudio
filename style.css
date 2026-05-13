@@ -882,7 +882,7 @@ ul {
 /* ===========================
    RESULTADOS / ANTES Y DESPUÉS — Split sincronizado
 =========================== */
-.ad-split {
+.comp-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.5rem;
@@ -890,11 +890,11 @@ ul {
   margin: 0 auto;
 }
 
-.ad-col {
+.comp-col {
   position: relative;
 }
 
-.ad-label {
+.comp-label {
   position: absolute;
   top: 1rem;
   left: 1rem;
@@ -909,19 +909,19 @@ ul {
   -webkit-backdrop-filter: blur(8px);
 }
 
-.ad-label-before {
+.comp-label-before {
   background: rgba(20, 20, 32, 0.78);
   color: var(--cream);
   border: 1px solid var(--border);
 }
 
-.ad-label-after {
+.comp-label-after {
   background: var(--orange);
   color: var(--bg);
   box-shadow: 0 4px 18px rgba(232, 101, 10, 0.35);
 }
 
-.ad-carousel {
+.comp-carousel {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
@@ -929,13 +929,13 @@ ul {
   background: var(--bg3);
 }
 
-.ad-track {
+.comp-track {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.ad-img {
+.comp-img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -946,12 +946,12 @@ ul {
   z-index: 1;
 }
 
-.ad-img.active {
+.comp-img.active {
   opacity: 1;
   z-index: 2;
 }
 
-.ad-controls {
+.comp-controls {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -959,7 +959,7 @@ ul {
   margin-top: 2.5rem;
 }
 
-.ad-btn {
+.comp-btn {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--cream);
@@ -974,19 +974,19 @@ ul {
   transition: all 0.3s ease;
 }
 
-.ad-btn:hover {
+.comp-btn:hover {
   background: var(--orange);
   border-color: var(--orange);
   color: var(--bg);
   transform: scale(1.08);
 }
 
-.ad-dots {
+.comp-dots {
   display: flex;
   gap: 0.5rem;
 }
 
-.ad-dots .dot {
+.comp-dots .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -997,7 +997,7 @@ ul {
   transition: all 0.35s ease;
 }
 
-.ad-dots .dot.active {
+.comp-dots .dot.active {
   background: var(--orange);
   width: 28px;
   border-radius: 4px;
@@ -1394,7 +1394,7 @@ ul {
   }
 
   /* Antes/Después responsive */
-  .ad-split {
+  .comp-split {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 0 1rem;
