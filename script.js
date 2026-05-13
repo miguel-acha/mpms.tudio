@@ -198,7 +198,15 @@ const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 const mobileClose = document.getElementById('mobileClose');
 
-hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
+hamburger.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('open')) {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+});
 mobileClose.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
 mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; } });
 document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));

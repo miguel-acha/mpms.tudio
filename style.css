@@ -23,6 +23,11 @@
   --slide-w: min(560px, calc(100vw - 5rem));
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -32,7 +37,7 @@ body {
   color: var(--cream);
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
-  overflow-x: hidden;
+  position: relative;
 }
 
 a {
@@ -1297,7 +1302,7 @@ ul {
 
   .campanas-right .car-slide,
   .campanas-left .car-slide {
-    height: 300px;
+    height: 420px;
   }
 
   /* mood boards side by side on tablet */
@@ -1340,7 +1345,7 @@ ul {
 
   #track-merch .car-slide {
     width: min(280px, calc(100vw - 3rem));
-    height: 280px;
+    height: 380px;
   }
 
   .img-modal-nav {
@@ -1423,8 +1428,9 @@ ul {
   }
 
   .artes-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     padding: 0 1rem;
+    gap: 0.6rem;
   }
 
   .collab-tag {
