@@ -29,17 +29,124 @@ window.addEventListener('load', () => {
 });
 
 /* ===========================
-   SCROLL REVEAL
+   SCROLL REVEAL — Rich entrance animations
 =========================== */
+/* Base reveal: fade up */
 gsap.utils.toArray('.reveal').forEach(el => {
   gsap.fromTo(el,
-    { opacity: 0, y: 32 },
+    { opacity: 0, y: 40 },
     {
-      opacity: 1, y: 0, duration: 0.85, ease: 'power3.out',
-      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' }
+      opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' }
     }
   );
 });
+
+/* Section headers — slide up + subtle scale */
+gsap.utils.toArray('.port-section-header').forEach(header => {
+  const label = header.querySelector('.section-label');
+  const title = header.querySelector('.section-title');
+  const sub = header.querySelector('.section-sub');
+  const els = [label, title, sub].filter(Boolean);
+  els.forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 30, scale: 0.97 },
+      {
+        opacity: 1, y: 0, scale: 1, duration: 0.9, delay: i * 0.12, ease: 'power3.out',
+        scrollTrigger: { trigger: header, start: 'top 88%', toggleActions: 'play none none none' }
+      }
+    );
+  });
+});
+
+/* Arte grid items — stagger + slight rotation */
+gsap.utils.toArray('.arte-item').forEach((item, i) => {
+  gsap.fromTo(item,
+    { opacity: 0, y: 50, rotateZ: (i % 2 === 0 ? -2 : 2), scale: 0.92 },
+    {
+      opacity: 1, y: 0, rotateZ: 0, scale: 1, duration: 0.8,
+      delay: i * 0.1, ease: 'power3.out',
+      scrollTrigger: { trigger: '.artes-grid', start: 'top 92%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+/* Carousel wraps — slide from right */
+gsap.utils.toArray('.carousel-wrap').forEach(wrap => {
+  gsap.fromTo(wrap,
+    { opacity: 0, x: 60 },
+    {
+      opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: wrap, start: 'top 88%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+/* Collab tags — pop in */
+gsap.utils.toArray('.collab-tag').forEach((tag, i) => {
+  gsap.fromTo(tag,
+    { opacity: 0, scale: 0.7, y: 16 },
+    {
+      opacity: 1, scale: 1, y: 0, duration: 0.6, delay: 0.15 + i * 0.1,
+      ease: 'back.out(1.4)',
+      scrollTrigger: { trigger: tag, start: 'top 92%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+/* Campañas split — left slides from left, right from right */
+gsap.utils.toArray('.campanas-left').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, x: -50 },
+    { opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+});
+gsap.utils.toArray('.campanas-right').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, x: 50 },
+    { opacity: 1, x: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' } });
+});
+
+/* Ad columns — stagger in */
+gsap.utils.toArray('.ad-col').forEach((col, i) => {
+  gsap.fromTo(col,
+    { opacity: 0, y: 40, scale: 0.95 },
+    {
+      opacity: 1, y: 0, scale: 1, duration: 0.9, delay: i * 0.15, ease: 'power3.out',
+      scrollTrigger: { trigger: col, start: 'top 90%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+/* Ad labels — slide from side */
+gsap.utils.toArray('.ad-label-before').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, x: -20 },
+    { opacity: 1, x: 0, duration: 0.6, delay: 0.3, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' } });
+});
+gsap.utils.toArray('.ad-label-after').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, x: 20 },
+    { opacity: 1, x: 0, duration: 0.6, delay: 0.3, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', toggleActions: 'play none none none' } });
+});
+
+/* Ad controls — fade up */
+gsap.utils.toArray('.ad-controls').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, y: 20 },
+    { opacity: 1, y: 0, duration: 0.7, delay: 0.4, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 95%', toggleActions: 'play none none none' } });
+});
+
+/* Contact section — gentle rise */
+gsap.utils.toArray('.contacto-center').forEach(el => {
+  gsap.fromTo(el, { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, duration: 1.1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
+});
+
+/* Footer — fade in */
+gsap.fromTo('#footer', { opacity: 0 },
+  { opacity: 1, duration: 0.8, ease: 'power2.out',
+    scrollTrigger: { trigger: '#footer', start: 'top 95%', toggleActions: 'play none none none' } });
 
 /* ===========================
    PARALLAX HERO BG
@@ -93,6 +200,7 @@ const mobileClose = document.getElementById('mobileClose');
 
 hamburger.addEventListener('click', () => { mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; });
 mobileClose.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; });
+mobileMenu.addEventListener('click', (e) => { if (e.target === mobileMenu) { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; } });
 document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }));
 
 /* ===========================
@@ -130,22 +238,22 @@ if (mouseGlow && !('ontouchstart' in window)) {
       if (triggered) return;
       triggered = true;
 
-      /* Count-up con GSAP */
+      /* Count-up con GSAP — smooth and gentle */
       const obj = { val: 0 };
       gsap.to(obj, {
         val: target,
-        duration: 2.4,
-        ease: 'power2.out',
+        duration: 2,
+        ease: 'power1.out',
         onUpdate: () => { numEl.textContent = fmt(obj.val); },
         onComplete: () => { numEl.textContent = fmt(target); }
       });
 
-      /* Subtle scale bounce on the whole row */
+      /* Gentle fade-in on the whole row */
       const row = numEl.closest('.impact-row');
       if (row) {
         gsap.fromTo(row,
-          { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out' }
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1.2, ease: 'power2.out' }
         );
       }
     }
@@ -194,26 +302,44 @@ function initCarousel(trackId, slideCount) {
     dotsEl.querySelectorAll('.car-dot').forEach((d, i) => { d.classList.toggle('active', i === current); });
   }
 
-  function goTo(idx) {
+  let autoTimer;
+
+  function startAuto() {
+    autoTimer = setInterval(() => {
+      let nextIdx = current + 1;
+      if (getOffset(nextIdx) > getMaxOffset() || nextIdx >= slides.length) {
+        nextIdx = 0;
+      }
+      goTo(nextIdx, true);
+    }, 4500);
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+
+  function goTo(idx, isAuto = false) {
     current = Math.max(0, Math.min(idx, slides.length - 1));
     const clamped = Math.min(getOffset(current), getMaxOffset());
-    gsap.to(track, { x: -clamped, duration: 0.52, ease: 'power3.out' });
+    gsap.to(track, { x: -clamped, duration: isAuto ? 1.2 : 0.52, ease: 'power2.inOut' });
     updateDots();
   }
 
-  prevBtn?.addEventListener('click', () => goTo(current - 1));
-  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  prevBtn?.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  nextBtn?.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
 
   let touchX = 0;
-  viewport.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+  viewport.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; resetAuto(); }, { passive: true });
   viewport.addEventListener('touchend', e => {
     const diff = touchX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 45) goTo(diff > 0 ? current + 1 : current - 1);
+    if (Math.abs(diff) > 45) { goTo(diff > 0 ? current + 1 : current - 1); resetAuto(); }
   });
 
-  window.addEventListener('resize', () => { gsap.set(track, { x: 0 }); current = 0; buildDots(); updateDots(); });
+  window.addEventListener('resize', () => { gsap.set(track, { x: 0 }); current = 0; buildDots(); updateDots(); resetAuto(); });
 
   buildDots();
+  startAuto();
 }
 
 initCarousel('track-branding', 7);
@@ -257,7 +383,7 @@ initCarousel('track-merch', 4);
     }
   }
 
-  function startAuto() { autoTimer = setInterval(() => show(current + 1), 3500); }
+  function startAuto() { autoTimer = setInterval(() => show(current + 1), 2500); }
   function restartAuto() { clearInterval(autoTimer); startAuto(); }
 
   const prev = document.querySelector('.ad-prev');
@@ -326,9 +452,7 @@ function connectGridToModal() {
     document.querySelectorAll(selector).forEach(item => {
       const src = item.getAttribute('data-src');
       if (!src) return;
-      const clone = item.cloneNode(true);
-      item.parentNode.replaceChild(clone, item);
-      clone.addEventListener('click', () => openModal([src], 0));
+      item.addEventListener('click', () => openModal([src], 0));
     });
   });
 }
