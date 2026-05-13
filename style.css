@@ -1302,7 +1302,8 @@ ul {
 
   .campanas-right .car-slide,
   .campanas-left .car-slide {
-    height: 420px;
+    height: 280px;
+    width: calc(100vw - 4rem);
   }
 
   /* mood boards side by side on tablet */
@@ -1344,8 +1345,14 @@ ul {
   }
 
   #track-merch .car-slide {
-    width: min(280px, calc(100vw - 3rem));
-    height: 380px;
+    width: calc(100vw - 3rem);
+    height: 240px;
+  }
+  
+  .campanas-right .car-slide,
+  .campanas-left .car-slide {
+    height: 240px;
+    width: calc(100vw - 3rem);
   }
 
   .img-modal-nav {
