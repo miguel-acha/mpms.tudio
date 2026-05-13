@@ -60,16 +60,13 @@ gsap.utils.toArray('.port-section-header').forEach(header => {
 });
 
 /* Arte grid items — appear simultaneously */
-gsap.utils.toArray('.arte-item').forEach((item, i) => {
-  gsap.fromTo(item,
-    { opacity: 0, y: 50, rotateZ: (i % 2 === 0 ? -2 : 2), scale: 0.92 },
-    {
-      opacity: 1, y: 0, rotateZ: 0, scale: 1, duration: 0.8,
-      delay: 0, ease: 'power3.out',
-      scrollTrigger: { trigger: '.artes-grid', start: 'top 92%', toggleActions: 'play none none none' }
-    }
-  );
-});
+gsap.fromTo('.arte-item',
+  { opacity: 0, y: 50, scale: 0.95 },
+  {
+    opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out',
+    scrollTrigger: { trigger: '.artes-grid', start: 'top 90%', toggleActions: 'play none none none' }
+  }
+);
 
 /* Carousel wraps — slide from right */
 gsap.utils.toArray('.carousel-wrap').forEach(wrap => {
