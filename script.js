@@ -285,13 +285,31 @@ function initCarousel(trackId, total) {
   buildDots();
 }
 
-initCarousel('track-guernelle', 10);
-initCarousel('track-lune', 8);
+/* Initialize new carousels */
+initCarousel('track-branding', 5);
+initCarousel('track-planning', 2);
+initCarousel('track-campanas-results', 10);
+initCarousel('track-merch', 4);
 
-/* Parallax for showcase (Tessa) — no carousel loader, set it on window load */
+/* Grid items connect to modal (ARTES, MOOD BOARDS, ANTES Y DESPUÉS) */
+function connectGridToModal() {
+  const gridSelectors = ['.arte-item', '.mood-item', '.antesdespues-item'];
+  gridSelectors.forEach(selector => {
+    document.querySelectorAll(selector).forEach(item => {
+      const src = item.getAttribute('data-src');
+      if (src) {
+        item.addEventListener('click', () => {
+          openModal([src], 0);
+        });
+      }
+    });
+  });
+}
+connectGridToModal();
+
 window.addEventListener('load', () => {
-  const showcasePar = document.querySelector('.showcase-wrap .par-wrap');
-  if (showcasePar && !paralaxDone.has(showcasePar)) setupImgParallax();
+  setupImgParallax();
+  connectGridToModal();
 });
 
 /* ===========================
