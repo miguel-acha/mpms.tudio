@@ -389,7 +389,7 @@ function initCarousel(trackId, slideCount) {
   startAuto();
 }
 
-initCarousel('track-branding', 7);
+initCarousel('track-branding', 6);
 initCarousel('track-planning', 2);
 initCarousel('track-campanas-results', 12);
 initCarousel('track-merch', 4);
