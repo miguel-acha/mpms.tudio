@@ -155,7 +155,6 @@ ul {
   border-radius: 50px;
   cursor: pointer;
   white-space: nowrap;
-  will-change: transform;
 }
 
 .btn-shine {
@@ -196,9 +195,6 @@ ul {
   transform: translateX(5px);
 }
 
-.reveal {
-  will-change: transform, opacity;
-}
 
 /* NAV */
 #nav {
@@ -491,6 +487,7 @@ ul {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
+  contain: paint;
 }
 
 .carousel-track {
@@ -515,7 +512,6 @@ ul {
   width: 100%;
   height: 116%;
   margin-top: -8%;
-  will-change: transform;
 }
 
 .par-wrap img {
@@ -1123,7 +1119,6 @@ ul {
   display: inline-block;
   opacity: 0;
   transform: translateY(40px);
-  will-change: transform, opacity;
 }
 
 .contacto-sub {

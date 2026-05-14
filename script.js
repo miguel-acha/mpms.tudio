@@ -171,7 +171,7 @@ function setupImgParallax() {
     const trigger = wrap.closest('.car-slide');
     gsap.fromTo(wrap, { yPercent: -8 }, {
       yPercent: 8, ease: 'none',
-      scrollTrigger: { trigger, start: 'top bottom', end: 'bottom top', scrub: 1 }
+      scrollTrigger: { trigger, start: 'top bottom', end: 'bottom top', scrub: 2 }
     });
   });
   ScrollTrigger.refresh();
@@ -359,17 +359,7 @@ function initCarousel(trackId, slideCount) {
     current = Math.max(0, Math.min(idx, slides.length - 1));
     const clamped = Math.min(getOffset(current), getMaxOffset());
     const slideDur = isAuto ? 1.2 : 0.52;
-    
     gsap.to(track, { x: -clamped, duration: slideDur, ease: 'power2.inOut' });
-    
-    // Scale animation during slide movement
-    gsap.to(slides, {
-      keyframes: [
-        { scale: 0.92, duration: slideDur / 2, ease: 'power1.inOut' },
-        { scale: 1, duration: slideDur / 2, ease: 'power1.inOut' }
-      ]
-    });
-
     updateDots();
   }
 
