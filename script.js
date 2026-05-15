@@ -59,20 +59,16 @@ gsap.utils.toArray('.port-section-header').forEach(header => {
   });
 });
 
-/* Arte grid items — cohesive sophisticated entry */
-gsap.fromTo('.arte-item',
-  { opacity: 0, scale: 0.85, y: 60 },
-  {
-    opacity: 1, scale: 1, y: 0,
-    duration: 1,
-    stagger: {
-      amount: 0.6,
-      from: 'center'
-    },
-    ease: 'back.out(1.4)',
-    scrollTrigger: { trigger: '.artes-grid', start: 'top 80%', toggleActions: 'play none none none' }
-  }
-);
+/* Arte grid items — each triggers individually as it scrolls in (no scale to avoid 14 compositing layers at once) */
+gsap.utils.toArray('.arte-item').forEach(el => {
+  gsap.fromTo(el,
+    { opacity: 0, y: 32 },
+    {
+      opacity: 1, y: 0, duration: 0.7, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 92%', toggleActions: 'play none none none' }
+    }
+  );
+});
 
 /* Carousel wraps — slide from right */
 gsap.utils.toArray('.carousel-wrap').forEach(wrap => {
@@ -299,7 +295,7 @@ if (mouseGlow && !('ontouchstart' in window)) {
 /* ===========================
    CAROUSELS — FIXED WIDTH
 =========================== */
-function initCarousel(trackId, slideCount) {
+function initCarousel(trackId) {
   const track = document.getElementById(trackId);
   if (!track) return;
 
@@ -379,10 +375,10 @@ function initCarousel(trackId, slideCount) {
   startAuto();
 }
 
-initCarousel('track-branding', 6);
-initCarousel('track-planning', 2);
-initCarousel('track-campanas-results', 12);
-initCarousel('track-merch', 4);
+initCarousel('track-branding');
+initCarousel('track-planning');
+initCarousel('track-campanas-results');
+initCarousel('track-merch');
 
 /* ===========================
    ANTES / DESPUÉS — Sincronizado con autoplay
